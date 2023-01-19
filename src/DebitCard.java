@@ -2,7 +2,7 @@ public class DebitCard {
     private String card_owner_name;
     private String card_number;
     private String card_pin;
-    private BankAccount bank_account;
+    private BankAccountInterface bank_account;
     DebitCard(String card_owner_name, String card_number, String card_pin, BankAccount account) {
         this.card_owner_name = card_owner_name;
         this.card_number = card_number;
@@ -18,7 +18,7 @@ public class DebitCard {
         return this.card_pin;
     }
 
-    public BankAccount get_bank_account() {
+    public BankAccountInterface get_bank_account() {
         return this.bank_account;
     }
 }

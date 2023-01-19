@@ -23,7 +23,7 @@ public class BankServer implements BankServerInterface {
             System.out.println("Wrong Pin Number!");
             return false;
         } else {
-            BankAccount bank_account = debit_card.get_bank_account();
+            BankAccountInterface bank_account = debit_card.get_bank_account();
             if (bank_account.get_account_balance() > amount) {
                 bank_account.debit(amount);
                 System.out.println("Transaction Successful!");
