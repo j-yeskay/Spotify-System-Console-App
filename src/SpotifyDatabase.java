@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class SpotifyDatabase implements SpotifyDatabaseInterface {
     private static SpotifyDatabaseInterface database_instance;
-    private final HashMap<String, User> users = new HashMap<>();
+    private HashMap<String, User> users = new HashMap<>();
 
     private SpotifyDatabase() {
 

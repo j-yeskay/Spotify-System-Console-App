@@ -2,11 +2,10 @@ import java.util.HashMap;
 
 public class User {
 
-    private final String name;
-    private int age;
-    private final String email;
+    private String name;
+    private String email;
     private UserType user_type;
-    private final String password;
+    private String password;
     User(String name, String email, String password) {
         this.name = name;
         this.email = email;

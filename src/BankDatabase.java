@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class BankDatabase implements BankDatabaseInterface {
     private static BankDatabase bank_database_instance = null;
-    private final HashMap<String, DebitCard> debit_cards = new HashMap<>();
+    private HashMap<String, DebitCard> debit_cards = new HashMap<>();
 
     private BankDatabase() {
 

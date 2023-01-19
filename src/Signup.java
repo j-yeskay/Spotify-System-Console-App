@@ -2,9 +2,11 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Signup implements SignupInterface {
+
+    @Override
     public void signup() {
         HashMap<String, String> signup_form_data = signup_form();
-        store_user_object_in_database(signup_form_data);
+        send_user_object_to_database(signup_form_data);
         System.out.println("Account Created Successfully.");
         Main.show_main_menu();
     }
@@ -26,7 +28,7 @@ public class Signup implements SignupInterface {
     }
 
     @Override
-    public void store_user_object_in_database(HashMap<String, String> signup_form_data) {
+    public void send_user_object_to_database(HashMap<String, String> signup_form_data) {
         SpotifyDatabaseInterface db = SpotifyDatabase.get_database_instance();
         User user = new User(signup_form_data.get("name"), signup_form_data.get("email"), signup_form_data.get("password"));
         if (db.find_user_by_email(user.get_email()) == null) {
