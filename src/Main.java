@@ -3,6 +3,10 @@ public class Main {
     public static void main(String[] args) {
         DummyBank dummyBank = new DummyBank();
         dummyBank.generate_dummy_bank_accounts();
+        SpotifyDatabaseInterface database = SpotifyDatabase.get_database_instance();
+        User user = new User("sathish", "sathish", "sathish");
+        user.set_user_type(UserType.ARTIST);
+        database.save(user);
         show_main_menu();
     }
 

@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Login implements LoginInterface {
 
     SpotifyDatabaseInterface db = SpotifyDatabase.get_database_instance();
-    Dashboard dashboard = Dashboard.get_dashboard_instance();
+
 
     @Override
     public void login() {
@@ -13,15 +13,28 @@ public class Login implements LoginInterface {
         if (user == null) {
             System.out.println("Account Does not Exists!");
             Main.show_main_menu();
-        } else {
+        }
+        else {
             if (!user.get_password().equals(login_form_data.get("password"))) {
                 System.out.println("Wrong Password");
                 Main.show_main_menu();
-            } else {
+            }
+            else {
                 ControlSystemInterface control_system = ControlSystem.get_control_system_instance();
                 control_system.set_current_user(user);
                 System.out.println("Logged in Successfully!");
-                dashboard.show_dashboard();
+                if(user.get_user_type() == UserType.BASIC){
+                    BasicUserDashboardInterface dashboard = BasicUserDashboard.get_dashboard_instance();
+                    dashboard.show_dashboard_menu();
+                }
+                else if(user.get_user_type() == UserType.PREMIUM){
+                    PremiumUserDashboardInterface dashboard = PremiumUserDashboard.get_dashboard_instance();
+                    dashboard.show_dashboard_menu();
+                }
+                else if(user.get_user_type() == UserType.ARTIST){
+                    ArtistUserDashboardInterface dashboard = ArtistUserDashboard.get_dashboard_instance();
+                    dashboard.show_dashboard_menu();
+                }
             }
         }
     }

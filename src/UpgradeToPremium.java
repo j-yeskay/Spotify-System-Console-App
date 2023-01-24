@@ -6,7 +6,7 @@ public class UpgradeToPremium {
     ControlSystemInterface control_system = ControlSystem.get_control_system_instance();
     BankServerInterface bank_system = BankServer.get_bank_server_instance();
 
-    Dashboard dashboard = Dashboard.get_dashboard_instance();
+    BasicUserDashboardInterface dashboard = BasicUserDashboard.get_dashboard_instance();
 
     double premium_cost = 100;
 
@@ -27,10 +27,14 @@ public class UpgradeToPremium {
             if (bank_system.debit_card_payment(card_number, card_pin, premium_cost)) {
                 User current_user = control_system.get_current_user();
                 current_user.set_user_type(UserType.PREMIUM);
+                System.out.println("Premium Purchase Success..");
+                System.out.println("Please Login Again!");
+                control_system.logout();
             } else {
                 System.out.println("Transaction Failed!");
+                dashboard.show_dashboard_menu();
+
             }
-            dashboard.show_dashboard();
         }
     }
 
