@@ -29,4 +29,20 @@ public class ControlSystem implements ControlSystemInterface {
         Main.show_main_menu();
     }
 
+    @Override
+    public void go_to_dashboard(){
+        if(this.get_current_user().get_user_type() == UserType.BASIC){
+            BasicUserDashboardInterface dashboard = BasicUserDashboard.get_dashboard_instance();
+            dashboard.show_dashboard_menu();
+        }
+        if(this.get_current_user().get_user_type() == UserType.PREMIUM){
+            PremiumUserDashboardInterface dashboard = PremiumUserDashboard.get_dashboard_instance();
+            dashboard.show_dashboard_menu();
+        }
+        else{
+            ArtistUserDashboardInterface dashboard = ArtistUserDashboard.get_dashboard_instance();
+            dashboard.show_dashboard_menu();
+        }
+    }
+
 }

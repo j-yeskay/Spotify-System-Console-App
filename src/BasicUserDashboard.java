@@ -24,7 +24,8 @@ public class BasicUserDashboard extends Dashboard implements BasicUserDashboardI
         Scanner sc = new Scanner(System.in);
         System.out.println("1. View Details");
         System.out.println("2. Go Premium");
-        System.out.println("3. Logout");
+        System.out.println("3. Go to Music Player");
+        System.out.println("4. Logout");
         String input = sc.nextLine();
         switch(input){
             case "1":
@@ -35,6 +36,9 @@ public class BasicUserDashboard extends Dashboard implements BasicUserDashboardI
                 go_premium();
                 break;
             case "3":
+                go_to_music_player();
+                break;
+            case "4":
                 control_system.logout();
                 break;
             default:

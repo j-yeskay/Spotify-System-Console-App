@@ -4,4 +4,6 @@ public interface ControlSystemInterface {
     void set_current_user(User user);
 
     void logout();
+
+    void go_to_dashboard();
 }

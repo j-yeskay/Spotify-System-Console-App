@@ -1,7 +1,9 @@
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class PremiumUserDashboard extends Dashboard implements PremiumUserDashboardInterface{
     ControlSystemInterface control_system = ControlSystem.get_control_system_instance();
+    MusicPlayerInterface music_player = MusicPlayer.get_musicplayer_instance();
 
     private static PremiumUserDashboard dashboard_instance = null;
 
@@ -21,7 +23,8 @@ public class PremiumUserDashboard extends Dashboard implements PremiumUserDashbo
         Scanner sc = new Scanner(System.in);
         System.out.println("1. View Details");
         System.out.println("2. Show Downloads");
-        System.out.println("3. Logout");
+        System.out.println("3. Go To Downloads");
+        System.out.println("4. Logout");
         String input = sc.nextLine();
         switch(input){
             case "1":
@@ -32,6 +35,9 @@ public class PremiumUserDashboard extends Dashboard implements PremiumUserDashbo
                 show_downloads();
                 break;
             case "3":
+                go_to_music_player();
+                break;
+            case "4":
                 control_system.logout();
                 break;
             default:
@@ -40,7 +46,11 @@ public class PremiumUserDashboard extends Dashboard implements PremiumUserDashbo
     }
 
     public void show_downloads(){
-        System.out.println("downloads are here...");
+        User current_user = control_system.get_current_user();
+        HashMap<String, Song> songs = current_user.get_downloaded_songs();
+
+            music_player.show_songs(songs);
+
         show_dashboard_menu();
     }
 

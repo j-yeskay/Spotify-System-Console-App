@@ -16,7 +16,6 @@ public class UpgradeToPremium {
     public void payment_option_menu() {
         System.out.println("Payment Options : ");
         System.out.println("1. Debit Card Payment");
-        System.out.println("2. UPI Payment ");
         String input = sc.nextLine();
         if (input.equals("1")) {
 
@@ -35,6 +34,9 @@ public class UpgradeToPremium {
                 dashboard.show_dashboard_menu();
 
             }
+        }
+        else{
+            dashboard.show_dashboard_menu();
         }
     }
 

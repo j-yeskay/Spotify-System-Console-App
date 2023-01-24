@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class User {
@@ -6,6 +7,8 @@ public class User {
     private String email;
     private UserType user_type;
     private String password;
+    private HashMap<String, Song> downloaded_songs = new HashMap<>();
+    private HashMap<String, Song> published_songs = new HashMap<>();
 
     User(String name, String email, String password) {
         this.name = name;
@@ -40,6 +43,22 @@ public class User {
         user_details.put("email", this.email);
         user_details.put("Account Type : ", this.user_type.toString());
         return user_details;
+    }
+
+    public void add_to_downloaded_songs(Song song){
+        this.downloaded_songs.put(song.get_id(), song);
+    }
+
+    public HashMap<String, Song> get_downloaded_songs(){
+        return this.downloaded_songs;
+    }
+
+    public void add_to_published_songs(Song song){
+        this.published_songs.put(song.get_id(), song);
+    }
+
+    public HashMap<String, Song> get_published_songs(){
+        return this.published_songs;
     }
 
 }

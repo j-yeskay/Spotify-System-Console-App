@@ -1,12 +1,11 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        DummyBank dummyBank = new DummyBank();
-        dummyBank.generate_dummy_bank_accounts();
-        SpotifyDatabaseInterface database = SpotifyDatabase.get_database_instance();
-        User user = new User("sathish", "sathish", "sathish");
-        user.set_user_type(UserType.ARTIST);
-        database.save(user);
+        DummyData dummy = new DummyData();
+        dummy.generate_dummy_bank_accounts();
+        dummy.generate_dummy_artist_accounts();
+        dummy.generate_dummy_songs();
+
         show_main_menu();
     }
 

@@ -23,18 +23,7 @@ public class Login implements LoginInterface {
                 ControlSystemInterface control_system = ControlSystem.get_control_system_instance();
                 control_system.set_current_user(user);
                 System.out.println("Logged in Successfully!");
-                if(user.get_user_type() == UserType.BASIC){
-                    BasicUserDashboardInterface dashboard = BasicUserDashboard.get_dashboard_instance();
-                    dashboard.show_dashboard_menu();
-                }
-                else if(user.get_user_type() == UserType.PREMIUM){
-                    PremiumUserDashboardInterface dashboard = PremiumUserDashboard.get_dashboard_instance();
-                    dashboard.show_dashboard_menu();
-                }
-                else if(user.get_user_type() == UserType.ARTIST){
-                    ArtistUserDashboardInterface dashboard = ArtistUserDashboard.get_dashboard_instance();
-                    dashboard.show_dashboard_menu();
-                }
+                control_system.go_to_dashboard();
             }
         }
     }
