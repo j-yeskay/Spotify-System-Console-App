@@ -8,16 +8,6 @@ public class Song {
         this.artist = artist;
     }
 
-    public void play(){
-        System.out.println("Playing...");
-    }
-
-    public void stop(){
-        System.out.println("Stopped...");
-    }
-
-
-
     public String get_title(){
         return this.title;
     }

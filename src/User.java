@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class User {
@@ -35,14 +34,6 @@ public class User {
 
     public String get_password() {
         return this.password;
-    }
-
-    public HashMap<String, String> get_user_details() {
-        HashMap<String, String> user_details = new HashMap<>();
-        user_details.put("name", this.name);
-        user_details.put("email", this.email);
-        user_details.put("Account Type : ", this.user_type.toString());
-        return user_details;
     }
 
     public void add_to_downloaded_songs(Song song){
