@@ -23,10 +23,12 @@ public class MusicPlayer implements MusicPlayerInterface{
     ControlSystem control_system = ControlSystem.get_control_system_instance();
     SpotifyDatabaseInterface spotify_database = SpotifyDatabase.get_database_instance();
 
+    @Override
     public void play(Song song){
         this.set_currently_playing(song);
     }
 
+    @Override
     public void stop(){
         if(currently_playing != null){
             System.out.println("Stopped...");
@@ -34,6 +36,7 @@ public class MusicPlayer implements MusicPlayerInterface{
         }
     }
 
+    @Override
     public void download(){
         User user = control_system.get_current_user();
         if(user.get_user_type() == UserType.BASIC){
@@ -49,6 +52,7 @@ public class MusicPlayer implements MusicPlayerInterface{
         }
     }
 
+    @Override
     public void show_songs(HashMap<String, Song> songs){
         if(songs.size() == 0){
             System.out.println("No Songs Available...");
@@ -60,14 +64,17 @@ public class MusicPlayer implements MusicPlayerInterface{
         }
     }
 
+    @Override
     public void set_currently_playing(Song song){
         this.currently_playing = song;
     }
 
+    @Override
     public Song get_currently_playing(){
         return this.currently_playing;
     }
 
+    @Override
     public void music_player_menu(){
         System.out.println("Enter Song ID to Play..");
         Scanner sc = new Scanner(System.in);

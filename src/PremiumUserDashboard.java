@@ -18,7 +18,7 @@ public class PremiumUserDashboard extends Dashboard implements PremiumUserDashbo
         return dashboard_instance;
     }
 
-
+    @Override
     public void show_dashboard_menu(){
         Scanner sc = new Scanner(System.in);
         System.out.println("1. View Details");
@@ -45,6 +45,7 @@ public class PremiumUserDashboard extends Dashboard implements PremiumUserDashbo
         }
     }
 
+    @Override
     public void show_downloads(){
         User current_user = control_system.get_current_user();
         HashMap<String, Song> songs = current_user.get_downloaded_songs();

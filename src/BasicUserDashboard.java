@@ -19,7 +19,7 @@ public class BasicUserDashboard extends Dashboard implements BasicUserDashboardI
         return dashboard_instance;
     }
 
-
+    @Override
     public void show_dashboard_menu(){
         Scanner sc = new Scanner(System.in);
         System.out.println("1. View Details");
@@ -46,6 +46,7 @@ public class BasicUserDashboard extends Dashboard implements BasicUserDashboardI
         }
     }
 
+    @Override
     public void go_premium() {
         UpgradeToPremium upgrade_to_premium_page = new UpgradeToPremium();
             upgrade_to_premium_page.payment_option_menu();

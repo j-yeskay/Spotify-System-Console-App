@@ -18,7 +18,7 @@ public class ArtistUserDashboard extends PremiumUserDashboard implements ArtistU
         return dashboard_instance;
     }
 
-
+    @Override
     public void show_dashboard_menu(){
         Scanner sc = new Scanner(System.in);
         System.out.println("1. View Details");
@@ -53,7 +53,7 @@ public class ArtistUserDashboard extends PremiumUserDashboard implements ArtistU
         }
     }
 
-
+    @Override
     public void publish_song(){
         User current_user = control_system.get_current_user();
         Scanner sc = new Scanner(System.in);
@@ -66,6 +66,7 @@ public class ArtistUserDashboard extends PremiumUserDashboard implements ArtistU
         show_dashboard_menu();
     }
 
+    @Override
     public void view_my_publications(){
         music_player.show_songs(control_system.get_current_user().get_published_songs());
         show_dashboard_menu();
