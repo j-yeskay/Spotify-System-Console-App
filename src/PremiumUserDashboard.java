@@ -23,7 +23,7 @@ public class PremiumUserDashboard extends Dashboard implements PremiumUserDashbo
         Scanner sc = new Scanner(System.in);
         System.out.println("1. View Details");
         System.out.println("2. Show Downloads");
-        System.out.println("3. Go To Downloads");
+        System.out.println("3. Go To Music Player");
         System.out.println("4. Logout");
         String input = sc.nextLine();
         switch(input){
